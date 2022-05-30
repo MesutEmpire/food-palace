@@ -1,12 +1,12 @@
 <template>
   <div class="grid md:grid-cols-3">
-    <NavBar>
+    <SideBar>
 
-    </NavBar>
+    </SideBar>
     <div class="px-16 py-6 md:col-span-2 bg-gray-100">
-      <LogIn>
+      <NavBar>
 
-      </LogIn>
+      </NavBar>
       <header class="mt-4">
         <h2 class="text-gray-700 text-6xl font-semibold leading-none tracking-wider">
           Special
@@ -19,23 +19,27 @@
         Latest Recipes
       </h4>
 
+      <div class="mt-8 grid lg:grid-cols-3 gap-10">
 
-      <Card class="mt-8 grid lg:grid-cols-3 gap-10">
+        <Card>
 
-      </Card>
+        </Card>
+      </div>
+
 
     </div>
   </div>
 </template>
 <script>
+import SideBar from '../components/SideBar.vue'
 import NavBar from '../components/NavBar.vue'
-import LogIn from '../components/LogIn.vue'
 import Card from '../components/Card.vue'
 export default {
   components: {
+    SideBar,
     NavBar,
-    LogIn,
-    Card
+    Card,
+    
 
   },
   setup() {
