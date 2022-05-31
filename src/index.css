@@ -15,3 +15,9 @@
 .btn {
   @apply rounded-full py-2 px-3 uppercase text-xs font-bold tracking-wider cursor-pointer;
 }
+.invalidInfo {
+  @apply bg-red-50 border border-red-500 text-red-900 placeholder-red-700
+}
+.validInfo {
+  @apply bg-green-50 border border-green-500 text-green-900 placeholder-green-700
+}
