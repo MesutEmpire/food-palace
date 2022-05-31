@@ -1,17 +1,12 @@
 import { createStore } from "vuex";
-import {signUp} from './signUp'
+import { signUp } from "./signUp";
+import { logIn } from "./logIn";
 
 export default createStore({
-  state: {
-    
-  },
+  state: {},
   getters: {},
-  mutations: {
-   
-  },
+  mutations: {},
   actions: {
-    
-
     // postData() {
     //   fetch(
     //     "https://food-palace-4e993-default-rtdb.firebaseio.com/users.json",
@@ -30,7 +25,6 @@ export default createStore({
     //     .then((res) => res.json())
     //     .then((json) => console.log(json));
     // },
-
     // fetchData() {
     //   fetch("https://food-palace-4e993-default-rtdb.firebaseio.com/users.json")
     //     .then((res) => res.json())
@@ -53,7 +47,6 @@ export default createStore({
     //     .then((res) => res.json())
     //     .then((res) => console.log(res));
     // },
-
     // changeData(id) {
     //   fetch(
     //     `https://food-palace-4e993-default-rtdb.firebaseio.com/users/${id}.json`,
@@ -72,5 +65,5 @@ export default createStore({
     //     .then((json) => console.log(json));
     // },
   },
-  modules: {signUp},
+  modules: { signUp, logIn },
 });
