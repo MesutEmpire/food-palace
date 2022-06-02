@@ -1,6 +1,6 @@
 <template>
-    <h2>My Cards</h2>
-    <form @submit.prevent="onSubmit">
+    <h2>My Card</h2>
+    <!-- <form @submit.prevent="onSubmit">
 
         <div class="my-10">
             <label for="Username" class="font-bold mx-5 ">Username</label>
@@ -36,7 +36,7 @@
             </div>
 
         </div>
-    </form>
+    </form> -->
 
 </template>
 <script>
