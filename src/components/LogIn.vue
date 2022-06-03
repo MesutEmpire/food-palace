@@ -1,12 +1,12 @@
 <template>
-    <div class=" flex justify-center items-center mx-auto bg-white p-16">
+    <div class=" flex justify-center items-center mx-auto bg-white p-8 lg:p-16">
 
         <div class="grid md:grid-cols-5 p-4  ">
             <div class="md:col-span-2 items-center rounded-lg ">
                 <img src="../assets/undraw_Eating_together_re_ux62.png"
                     class="h-96 w-96 object-contain md:object-scale-down">
             </div>
-            <div class="md:col-span-3  rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8">
+            <div class="md:col-span-3  rounded-lg border border-gray-200 shadow-md p-3 sm:p-6 lg:p-8">
                 <div class="my-7 mb-9  ">
                     <p class="  mb-1 block text-xl lg:text-2xl font-normal text-gray-400">Welcome back!</p>
                     <h1 class=" block text-2xl lg:text-4xl font-bold mb-2">Login to your account</h1>
@@ -50,6 +50,10 @@
                         class="text-white mb-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm lg:text-base w-full sm:w-auto px-5 py-2.5 text-center ">
                         Sign in
                     </button>
+                    <div class="text-sm lg:text-base font-medium text-gray-500  dark:text-gray-300">
+                        Not registered? <router-link to="/signUp"
+                            class="text-blue-400 hover:text-blue-700 hover:underline dark:text-blue-500">Create account</router-link>
+                    </div>
 
 
 
@@ -85,13 +89,13 @@ export default {
             password: "",
         })
         const getData = () => {
-            if (form.email === '' && form.password === ''){
+            if (form.email === '' && form.password === '') {
                 store.commit('logIn/deniedAccess')
-               
+
             }
             else {
                 store.commit('logIn/updateLogInfo', form)
-            store.dispatch('logIn/getDataDB')
+                store.dispatch('logIn/getDataDB')
             }
         }
         return {
