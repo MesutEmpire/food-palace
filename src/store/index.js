@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 import { signUp } from "./signUp";
 import { logIn } from "./logIn";
-
+import { products } from "./products";
 export default createStore({
   state: {},
   getters: {},
@@ -65,5 +65,5 @@ export default createStore({
     //     .then((json) => console.log(json));
     // },
   },
-  modules: { signUp, logIn },
+  modules: { signUp, logIn,products },
 });

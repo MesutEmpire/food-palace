@@ -31,6 +31,9 @@ export const logIn = {
         state.status.userNotFound = true;
       }
     },
+    deniedAccess(state){
+      state.status.userNotFound = true;
+    }
   },
   actions: {
     getDataDB(context) {

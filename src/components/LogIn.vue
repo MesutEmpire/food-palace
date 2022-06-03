@@ -17,7 +17,7 @@
                     <div class="mb-6">
                         <label for="email" class="block mb-2 text-sm lg:text-base font-medium text-gray-900">Email
                             address</label>
-                        <input type="email" id="email" v-model="form.email"
+                        <input type="email" id="email" v-model="form.email" :class="{ invalidInfo: notFound }"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                             placeholder="food.palace@gmail.com" required>
                     </div>
@@ -26,7 +26,7 @@
                     <div class="mb-6">
                         <label for="password"
                             class="block mb-2 text-sm lg:text-base font-medium text-gray-900 dark:text-gray-300">Password</label>
-                        <input type="password" id="password" v-model="form.password"
+                        <input type="password" id="password" v-model="form.password" :class="{ invalidInfo: notFound }"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                             placeholder="Enter Password" required>
                     </div>
@@ -85,8 +85,14 @@ export default {
             password: "",
         })
         const getData = () => {
-            store.commit('logIn/updateLogInfo', form)
+            if (form.email === '' && form.password === ''){
+                store.commit('logIn/deniedAccess')
+               
+            }
+            else {
+                store.commit('logIn/updateLogInfo', form)
             store.dispatch('logIn/getDataDB')
+            }
         }
         return {
             store,

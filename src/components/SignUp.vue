@@ -3,6 +3,7 @@
     <div class="max-w-2xl mx-auto bg-white p-16">
 
         <div class="p-4   rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8">
+            <div class="flex justify-center "><img src="../assets/logov2.png" class="mr-3 h-16 lg:h-24 object-fill " alt="Food Palace Logo"></div>
             <div class="flex justify-center text-2xl lg:text-4xl  my-7 mb-9 font-bold ">
                 Create Account
             </div>
