@@ -52,7 +52,8 @@
                     </button>
                     <div class="text-sm lg:text-base font-medium text-gray-500  dark:text-gray-300">
                         Not registered? <router-link to="/signUp"
-                            class="text-blue-400 hover:text-blue-700 hover:underline dark:text-blue-500">Create account</router-link>
+                            class="text-blue-400 hover:text-blue-700 hover:underline dark:text-blue-500">Create account
+                        </router-link>
                     </div>
 
 
@@ -81,9 +82,12 @@
 <script>
 import { ref, reactive, computed } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter, useRoute } from 'vue-router'
 export default {
     setup(props, context) {
         const store = useStore()
+        const router = useRouter()
+        const route = useRoute()
         const form = reactive({
             email: "",
             password: "",
@@ -96,6 +100,14 @@ export default {
             else {
                 store.commit('logIn/updateLogInfo', form)
                 store.dispatch('logIn/getDataDB')
+                setTimeout(() =>{
+                    
+                if (computed(() => store.getters['logIn/getUserFoundStatus']).value === true) {
+                  
+                    
+                    router.push('/')
+                }
+                },500)
             }
         }
         return {

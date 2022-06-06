@@ -8,6 +8,7 @@ export const signUp = {
       email: "",
       password: "",
       confirmPassword: "",
+      level : "user"
     },
   },
   getters: {},
@@ -69,6 +70,7 @@ export const signUp = {
             email: context.state.form.email,
             password: context.state.form.password,
             confirmPassword: context.state.form.confirmPassword,
+            level: context.state.form.level,
           }),
         }
       )

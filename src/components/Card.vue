@@ -1,8 +1,8 @@
 <template>
 
     <div class="mt-8 grid lg:grid-cols-3 gap-10  container mx-auto px-4 ">
-        <div v-for="product in Products" :key="product.title" >
-        
+        <div v-for="product in Products" :key="product.title">
+
             <div class="card ">
                 <a href="#">
                     <img class="rounded-t-lg h-48 object-cover w-full  " :src="product.img" alt="product image" />
@@ -44,7 +44,9 @@
                             </path>
                         </svg>
                         <span
-                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{{ product.rating }}</span>
+                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">{{
+                                    product.rating
+                            }}</span>
                     </div>
                     <div class="flex justify-between items-center">
                         <span class="text-3xl font-bold text-gray-900 ">Ksh{{ product.price }}</span>
@@ -60,17 +62,13 @@
 
 </template>
 <script>
-import { onMounted } from '@vue/runtime-core'
+
 import { useStore } from 'vuex'
 import { computed } from 'vue'
 
 export default {
     setup() {
         const store = useStore()
-
-        onMounted(() => {
-            store.dispatch('products/getProducts')
-        })
 
         return {
             store,

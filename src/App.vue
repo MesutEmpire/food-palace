@@ -5,7 +5,27 @@
   </nav> -->
   <router-view />
 </template>
+<script>
+import { useStore } from 'vuex'
+import { onMounted } from '@vue/runtime-core'
 
+export default {
+    setup() {
+        const store = useStore()
+
+        onMounted(() => {
+            store.dispatch('products/getProducts')
+        })
+
+        return {
+            store,
+            
+        }
+    }
+}
+
+
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
