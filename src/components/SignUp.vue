@@ -78,10 +78,12 @@
 <script>
 import { ref, reactive, onMounted, computed, watchEffect } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
 export default {
     setup() {
         const store = useStore()
+        const router = useRouter()
         const correctPass = reactive({
             correctPassSuccess: false,
             displaySuccess: false
@@ -124,6 +126,7 @@ export default {
                 correctPass.displaySuccess = true
                 store.commit('signUp/updateForm', form)
                 store.dispatch('signUp/fetchNoOfUsers')
+
             }
             else {
                 correctPass.displaySuccess = false

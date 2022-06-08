@@ -1,3 +1,6 @@
+import router from "../router/index";
+import { useStorage } from "@vueuse/core";
+
 export const logIn = {
   namespaced: true,
   state: {
@@ -9,7 +12,6 @@ export const logIn = {
       userFound: false,
       userNotFound: false,
     },
-    level: "",
     currentUserDetails: {
       firstname: "",
       lastname: "",
@@ -18,7 +20,6 @@ export const logIn = {
       password: "",
       level: "",
     },
-    // isUserLoggedIn: false,
   },
   getters: {
     getUserFoundStatus(state) {
@@ -43,6 +44,10 @@ export const logIn = {
         state.status.userNotFound = false;
       } else if (payload === false) {
         state.status.userNotFound = true;
+        state.status.userFound = false;
+      } else {
+        state.status.userNotFound = false;
+        state.status.userFound = false;
       }
     },
     deniedAccess(state) {
@@ -55,6 +60,19 @@ export const logIn = {
       state.currentUserDetails.email = payload.email;
       state.currentUserDetails.password = payload.password;
       state.currentUserDetails.level = payload.level;
+    },
+    storeCurrentUser(state) {
+      localStorage.setItem(
+        "currentUser",
+        JSON.stringify(state.currentUserDetails)
+      );
+    },
+    changeRouter(state, payload) {
+      if (payload.level === "user") {
+        router.push("/");
+      } else if (payload.level === "SuperUser") {
+        router.push("/admin");
+      }
     },
   },
   actions: {
@@ -75,8 +93,10 @@ export const logIn = {
               context.state.form.email === currentDetails.email &&
               context.state.form.password === currentDetails.password
             ) {
+              context.commit("changeRouter", currentDetails);
               context.commit("changeStatus", true);
               context.commit("updateUserDetails", currentDetails);
+              context.commit("storeCurrentUser");
 
               break;
             } else {

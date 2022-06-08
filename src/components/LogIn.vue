@@ -82,12 +82,12 @@
 <script>
 import { ref, reactive, computed } from 'vue'
 import { useStore } from 'vuex'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 export default {
     setup(props, context) {
         const store = useStore()
         const router = useRouter()
-        const route = useRoute()
+
         const form = reactive({
             email: "",
             password: "",
@@ -100,14 +100,6 @@ export default {
             else {
                 store.commit('logIn/updateLogInfo', form)
                 store.dispatch('logIn/getDataDB')
-                setTimeout(() =>{
-                    
-                if (computed(() => store.getters['logIn/getUserFoundStatus']).value === true) {
-                  
-                    
-                    router.push('/')
-                }
-                },500)
             }
         }
         return {

@@ -71,6 +71,7 @@ export const products = {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            id: newID.noProducts,
             title: context.state.formProducts.title,
             price: context.state.formProducts.price,
             time: context.state.formProducts.time,
@@ -112,6 +113,7 @@ export const products = {
                     const userObject = jsons[json];
                    
                     context.commit('putProducts',userObject)
+                    
                   }
          
         });

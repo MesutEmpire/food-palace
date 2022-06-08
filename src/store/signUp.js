@@ -1,3 +1,5 @@
+import router from "../router/index";
+
 export const signUp = {
   namespaced: true,
   state: {
@@ -8,7 +10,7 @@ export const signUp = {
       email: "",
       password: "",
       confirmPassword: "",
-      level : "user"
+      level: "user",
     },
   },
   getters: {},
@@ -75,7 +77,10 @@ export const signUp = {
         }
       )
         .then((res) => res.json())
-        .then((json) => context.dispatch("updateNoOfUsers", newID.noUser));
+        .then((json) => {
+          context.dispatch("updateNoOfUsers", newID.noUser);
+        });
+      router.push("/logIn");
     },
 
     updateNoOfUsers(context, newID) {

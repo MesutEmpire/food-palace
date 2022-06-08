@@ -8,6 +8,9 @@
 <script>
 import { useStore } from 'vuex'
 import { onMounted } from '@vue/runtime-core'
+import { tryOnBeforeMount } from '@vueuse/core'
+
+
 
 export default {
     setup() {
@@ -16,6 +19,14 @@ export default {
         onMounted(() => {
             store.dispatch('products/getProducts')
         })
+        tryOnBeforeMount(() => {
+if (localStorage.getItem("currentUser")){
+   const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+     store.commit("logIn/changeStatus", true);
+     store.commit("logIn/changeRouter",currentUser);
+   console.log(currentUser)
+  }
+})
 
         return {
             store,

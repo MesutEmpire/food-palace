@@ -21,3 +21,9 @@
 .validInfo {
   @apply invalid:border-green-500 invalid:text-green-600 focus:invalid:border-green-500 focus:invalid:ring-green-500 placeholder-green-500 
 }
+.cartHome {
+  @apply   right-6 md:mr-56
+}
+.cartLogIn{
+  @apply  right-20 md:mr-8
+}
