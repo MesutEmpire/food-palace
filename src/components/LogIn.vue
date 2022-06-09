@@ -16,10 +16,10 @@
                 <form @submit.prevent="onSubmit">
                     <div class="mb-6">
                         <label for="email" class="block mb-2 text-sm lg:text-base font-medium text-gray-900">Email
-                            address</label>
+                            Address</label>
                         <input type="email" id="email" v-model="form.email" :class="{ invalidInfo: notFound }"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="food.palace@gmail.com" required>
+                            placeholder="Enter Email Address" required>
                     </div>
 
 

@@ -15,21 +15,21 @@
                             name</label>
                         <input type="text" id="first_name" v-model="form.firstname"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Food" required>
+                            placeholder="Enter Firstname" required>
                     </div>
                     <div>
                         <label for="last_name" class="block mb-2 text-sm lg:text-base font-medium text-gray-900 ">Last
                             name</label>
                         <input type="text" id="last_name" v-model="form.lastname"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Palace" required>
+                            placeholder="Enter Lastname" required>
                     </div>
                     <div>
                         <label for="phone" class="block mb-2 text-sm lg:text-base font-medium text-gray-900 ">Phone
                             number</label>
                         <input type="tel" id="phone" v-model="form.phoneNumber"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="+254" required>
+                            placeholder="Phone No." required>
                     </div>
                 </div>
                 <div class="mb-6">
@@ -37,7 +37,7 @@
                         address</label>
                     <input type="email" id="email" v-model="form.email"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                        placeholder="food.palace@gmail.com" required>
+                        placeholder="Enter Email Address" required>
                 </div>
                 <div class="mb-6">
                     <label for="password"
