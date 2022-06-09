@@ -199,7 +199,7 @@ export default {
     };
     const removeFromCart = (id) => {
       mycart.value = [];
-      mycart.total = 0.0;
+      mycart.total = 0.00;
       store.commit("selectedProduct/removeItem", id);
     };
 

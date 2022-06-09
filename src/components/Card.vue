@@ -1,8 +1,8 @@
 <template>
   <div :class="{ '-mt-44': userFound }">
     <div class="mt-8 grid lg:grid-cols-3 gap-10 container mx-auto px-4">
-      <div v-for="product in Products" :key="product.id">
-        <!-- @click="viewedProduct(product.id)" -->
+      <div v-for="product in Products" :key="product.id" @click="viewedProduct(product.id)">
+        
         <div class="card">
           <a href="#" data-modal-toggle="defaultModal" @click="updateDetails">
             <img class="rounded-t-lg h-48 object-cover w-full" :src="product.img" alt="product image" />
@@ -37,9 +37,9 @@
                   dark:bg-blue-200
                 ">{{ product.rating }}</span>
             </div>
-            <div class="flex justify-between items-center">
+            <div class="flex justify-start items-center">
               <span class="text-3xl font-bold text-gray-900">Ksh{{ product.price }}</span>
-              <a @click="choosenProduct(product.id)" href="#" class="
+              <!-- <a  href="#" class="
                   text-white
                   bg-indigo-700
                   hover:bg-indigo-800
@@ -50,7 +50,7 @@
                   px-5
                   py-2.5
                   text-center
-                ">Add to cart</a>
+                ">Add to cart</a> -->
             </div>
           </div>
         </div>
@@ -58,9 +58,9 @@
     </div>
   </div>
 
-  <!-- <div v-if="showModal" class="flex items-center">
-        
-    </div> -->
+  <div  v-if="showModal" >
+        <Modal></Modal>
+    </div>
 </template>
 <script>
 import { useStore } from "vuex";
@@ -74,37 +74,21 @@ export default {
   setup() {
     const store = useStore();
 
-    let myprod = reactive({
-      value: null,
-    });
-
-    const showModal = ref(false);
-    const viewProduct = computed(() => {
-      console.log(myprod.value);
-      return myprod.value;
-    });
-
     const viewedProduct = (id) => {
-      const products = store.getters["products/showProducts"];
-
-      myprod.value = products[id];
-
-      showModal.value = true;
+      
+     store.commit('selectedProduct/updateModal', true)
+     store.commit('selectedProduct/updateSelectedModal', id)
     };
-    const choosenProduct = (id) => {
-      store.commit('selectedProduct/updateChoosenProduct', id)
-
-    }
+   
 
     return {
       store,
       viewedProduct,
       Products: computed(() => store.getters["products/showProducts"]),
       userFound: computed(() => store.getters["products/getUserFoundStatus"]),
-      viewProduct,
-      showModal,
-      myprod,
-      choosenProduct
+      
+      showModal: computed(() => store.getters["selectedProduct/getModal"]),
+  
     };
   },
 };

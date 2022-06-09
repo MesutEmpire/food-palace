@@ -5,6 +5,8 @@ export const selectedProduct = {
     selectedProducts: [],
     viewProduct: {},
     displayCart: false,
+    showModal : false,
+    selectedModal : null
   },
   getters: {
     // getCurrentProduct() {
@@ -22,6 +24,13 @@ export const selectedProduct = {
     getDisplayCart(state) {
       return state.displayCart;
     },
+    getModal(state){
+      return state.showModal
+    },
+    getSelectedModal(state){
+      console.log(state.selectedModal)
+      return state.selectedModal
+    }
   },
   mutations: {
     updateProducts(state, payload) {
@@ -47,6 +56,14 @@ export const selectedProduct = {
     removeAlert(state) {
       state.choosenProduct = false;
     },
+    updateModal(state,payload){
+      state.showModal = payload
+    },
+    updateSelectedModal(state,payload){
+      state.selectedModal = payload
+      console.log(state.selectedModal)
+      
+    }
   },
   actions: {
     getProducts({ dispatch, commit, getters, rootGetters }, payload) {
