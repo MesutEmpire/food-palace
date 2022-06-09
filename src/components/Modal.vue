@@ -744,7 +744,7 @@ export default {
     });
 
     const viewProduct = computed(() => {
-      console.log(myprod.value);
+      
       return myprod.value;
     });
 
@@ -752,7 +752,7 @@ export default {
       const products = store.getters["products/showProducts"];
       const myModal = store.getters["selectedProduct/getSelectedModal"];
       console.log(store.getters["selectedProduct/getSelectedModal"]);
-      console.log(myModal);
+      
       myprod.value = products[myModal];
     };
     const removeModal = () => {

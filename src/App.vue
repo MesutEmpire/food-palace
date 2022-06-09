@@ -9,30 +9,33 @@
 import { useStore } from 'vuex'
 import { onMounted } from '@vue/runtime-core'
 import { tryOnBeforeMount } from '@vueuse/core'
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 
 
 export default {
-    setup() {
-        const store = useStore()
+  setup() {
+    const store = useStore()
 
-        onMounted(() => {
-            store.dispatch('products/getProducts')
-        })
-        tryOnBeforeMount(() => {
-if (localStorage.getItem("currentUser")){
-   const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-     store.commit("logIn/changeStatus", true);
-     store.commit("logIn/changeRouter",currentUser);
-   console.log(currentUser)
-  }
-})
+    onMounted(() => {
+      store.dispatch('products/getProducts')
+      const analytics = getAnalytics();
+      logEvent(analytics, 'notification_received');
+    })
+    tryOnBeforeMount(() => {
+      if (localStorage.getItem("currentUser")) {
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+        store.commit("logIn/changeStatus", true);
+        store.commit("logIn/changeRouter", currentUser);
 
-        return {
-            store,
-            
-        }
+      }
+    })
+
+    return {
+      store,
+
     }
+  }
 }
 
 

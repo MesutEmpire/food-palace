@@ -4,6 +4,7 @@ export const signUp = {
   namespaced: true,
   state: {
     form: {
+      id:'',
       firstname: "",
       lastname: "",
       phoneNumber: "",
@@ -11,6 +12,8 @@ export const signUp = {
       password: "",
       confirmPassword: "",
       level: "user",
+      cart:[],
+      loggedIn:false
     },
   },
   getters: {},
@@ -51,7 +54,7 @@ export const signUp = {
       )
         .then((res) => res.json())
         .then((newID) => {
-          console.log(newID);
+          
           context.dispatch("userData", newID);
         });
     },
@@ -66,6 +69,7 @@ export const signUp = {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            id:newID.noUser,
             firstname: context.state.form.firstname,
             lastname: context.state.form.lastname,
             phoneNumber: context.state.form.phoneNumber,
@@ -73,6 +77,8 @@ export const signUp = {
             password: context.state.form.password,
             confirmPassword: context.state.form.confirmPassword,
             level: context.state.form.level,
+            cart: context.state.form.cart,
+            loggedIn: context.state.form.loggedIn,
           }),
         }
       )

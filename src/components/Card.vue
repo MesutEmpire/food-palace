@@ -4,9 +4,10 @@
       <div v-for="product in Products" :key="product.id" @click="viewedProduct(product.id)">
         
         <div class="card">
-          <a href="#" data-modal-toggle="defaultModal" @click="updateDetails">
+           <a href="#" data-modal-toggle="defaultModal" @click="updateDetails">
             <img class="rounded-t-lg h-48 object-cover w-full" :src="product.img" alt="product image" />
-          </a>
+            </a>
+          
           <div class="px-5 pb-5 mt-3">
             <a href="#">
               <h5 class="text-xl font-semibold tracking-tight text-gray-900">

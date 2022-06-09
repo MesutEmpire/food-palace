@@ -3,6 +3,7 @@ import { signUp } from "./signUp";
 import { logIn } from "./logIn";
 import { products } from "./products";
 import {selectedProduct} from "./selectedProduct";
+import {cart} from "./cart";
 export default createStore({
   state: {},
   getters: {},
@@ -66,5 +67,5 @@ export default createStore({
     //     .then((json) => console.log(json));
     // },
   },
-  modules: { signUp, logIn,products,selectedProduct },
+  modules: { signUp, logIn,products,selectedProduct,cart },
 });

@@ -28,7 +28,7 @@ export const selectedProduct = {
       return state.showModal
     },
     getSelectedModal(state){
-      console.log(state.selectedModal)
+      
       return state.selectedModal
     }
   },
@@ -40,6 +40,7 @@ export const selectedProduct = {
     updateChoosenProduct(state, payload) {
       state.choosenProduct = true;
       state.selectedProducts.push(payload);
+      
     },
     changeDisplayCart(state) {
       state.displayCart = !state.displayCart;
@@ -53,6 +54,9 @@ export const selectedProduct = {
         }
       }
     },
+    removeAll(state){
+      state.selectedProducts = []
+    },
     removeAlert(state) {
       state.choosenProduct = false;
     },
@@ -61,7 +65,7 @@ export const selectedProduct = {
     },
     updateSelectedModal(state,payload){
       state.selectedModal = payload
-      console.log(state.selectedModal)
+      
       
     }
   },
@@ -71,7 +75,7 @@ export const selectedProduct = {
 
       for (const product in allProducts) {
         if (payload === allProducts[product].id) {
-          console.log(allProducts[product]);
+         
         }
       }
     },
