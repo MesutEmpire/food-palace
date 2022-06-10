@@ -6,39 +6,30 @@
   <router-view />
 </template>
 <script>
-import { useStore } from 'vuex'
-import { onMounted } from '@vue/runtime-core'
-import { tryOnBeforeMount } from '@vueuse/core'
+import { useStore } from "vuex";
+import { onMounted, onBeforeMount } from "vue";
+import { tryOnBeforeMount } from "@vueuse/core";
 import { getAnalytics, logEvent } from "firebase/analytics";
-
-
 
 export default {
   setup() {
-    const store = useStore()
+    const store = useStore();
 
-    onMounted(() => {
-      store.dispatch('products/getProducts')
-      const analytics = getAnalytics();
-      logEvent(analytics, 'notification_received');
-    })
-    tryOnBeforeMount(() => {
-      if (localStorage.getItem("currentUser")) {
-        const currentUser = JSON.parse(localStorage.getItem("currentUser"))
-        store.commit("logIn/changeStatus", true);
-        store.commit("logIn/changeRouter", currentUser);
+    store.dispatch("products/getProducts");
+    const analytics = getAnalytics();
+    logEvent(analytics, "notification_received");
+    console.log("oncreate");
 
-      }
-    })
-
+    if (localStorage.getItem("currentUser")) {
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      store.commit("logIn/changeStatus", true);
+      store.commit("logIn/changeRouter", currentUser);
+    }
     return {
       store,
-
-    }
-  }
-}
-
-
+    };
+  },
+};
 </script>
 <style>
 #app {

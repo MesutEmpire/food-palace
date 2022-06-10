@@ -16,14 +16,26 @@
   @apply rounded-full py-2 px-3 uppercase text-xs font-bold tracking-wider cursor-pointer;
 }
 .invalidInfo {
-  @apply invalid:border-red-500 invalid:text-red-600 focus:invalid:border-red-500 focus:invalid:ring-red-500 placeholder-red-500  
+  @apply invalid:border-red-500 invalid:text-red-600 focus:invalid:border-red-500 focus:invalid:ring-red-500 placeholder-red-500;
 }
 .validInfo {
-  @apply invalid:border-green-500 invalid:text-green-600 focus:invalid:border-green-500 focus:invalid:ring-green-500 placeholder-green-500 
+  @apply invalid:border-green-500 invalid:text-green-600 focus:invalid:border-green-500 focus:invalid:ring-green-500 placeholder-green-500;
 }
 .cartHome {
-  @apply   right-6 md:mr-56
+  @apply right-6 md:mr-56;
 }
-.cartLogIn{
-  @apply  right-20 md:mr-8
+.cartLogIn {
+  @apply right-20 md:mr-8;
+}
+.inputError {
+  @apply border-red-600  focus:border-red-600;
+}
+.labelError {
+  @apply text-red-600;
+}
+.inputSuccess {
+  @apply border-green-600  focus:border-green-600;
+}
+.labelSuccess {
+  @apply text-green-600;
 }

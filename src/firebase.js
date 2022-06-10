@@ -27,10 +27,10 @@ const path = reactive({
 });
 
 export const uploadImage = (file, imgName) => {
-  const storageRef = ref(storage, imgName);
+  const storageRef = ref(storage, `Products/${imgName}`);
 
   uploadBytes(storageRef, file).then((snapshot) => {
-    getDownloadURL(ref(storage, imgName)).then((url) => {
+    getDownloadURL(ref(storage, `Products/${imgName}`)).then((url) => {
       path.value = url;
     });
   });

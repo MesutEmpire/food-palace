@@ -24,10 +24,10 @@
 
         <div v-if="!userFound">
           <router-link to="/logIn"
-            class="md:mr-6 btn text-purple-400 border-purple-400 md:border-2 hover:bg-purple-400 hover:text-white transition ease-out duration-500">
+            class="md:mr-6 btn text-indigo-600 border-indigo-600 md:border-2 hover:bg-indigo-600 hover:text-white transition ease-out duration-500">
             Log in</router-link>
           <router-link to="/signUp"
-            class="btn text-purple-400 border-purple-400 md:border-2 hover:bg-purple-400 hover:text-white transition ease-out duration-500">
+            class="btn text-indigo-600 border-indigo-600 md:border-2 hover:bg-indigo-600 hover:text-white transition ease-out duration-500">
             Sign up</router-link>
         </div>
 
@@ -42,12 +42,13 @@
         </div>
       </div>
     </div>
-  </nav>
-  <div v-if="userFound">
-    <div v-if="displayDrop">
-      <currentUser></currentUser>
+    <div v-if="userFound">
+      <div v-if="displayDrop">
+        <currentUser></currentUser>
+      </div>
     </div>
-  </div>
+  </nav>
+
   <div v-if="displayCart">
     <Cart></Cart>
   </div>

@@ -1,17 +1,7 @@
 <template>
-  <div class="flex justify-end mr-10">
+  <div class="fixed top-16 right-6">
     <div
-      class="
-        top-0
-        right-0
-        w-56
-        mt-2
-        origin-top-right
-        rounded-md
-        shadow-lg
-        md:w-48
-        max-w-auto
-      "
+      class="w-48 mt-2 origin-top-right rounded-md shadow-lg md:w-56 max-w-auto"
     >
       <div class="px-2 py-2 bg-white rounded-md shadow">
         <span class="block text-sm text-gray-90">
@@ -24,15 +14,7 @@
           <li class="my-px">
             <a
               href="#"
-              class="
-                flex flex-row
-                items-center
-                h-12
-                px-4
-                rounded-lg
-                text-gray-600
-                hover:bg-gray-100
-              "
+              class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
             >
               <span
                 class="flex items-center justify-center text-lg text-gray-400"
@@ -57,15 +39,7 @@
           <li class="my-px">
             <a
               href="#"
-              class="
-                flex flex-row
-                items-center
-                h-12
-                px-4
-                rounded-lg
-                text-gray-600
-                hover:bg-gray-100
-              "
+              class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
             >
               <span
                 class="flex items-center justify-center text-lg text-gray-400"
@@ -86,18 +60,7 @@
               </span>
               <span class="ml-3">Notifications</span>
               <span
-                class="
-                  flex
-                  items-center
-                  justify-center
-                  text-sm text-gray-500
-                  font-semibold
-                  bg-gray-200
-                  h-6
-                  px-2
-                  rounded-full
-                  ml-auto
-                "
+                class="flex items-center justify-center text-sm text-gray-500 font-semibold bg-gray-200 h-6 px-2 rounded-full ml-auto"
                 >10</span
               >
             </a>
@@ -105,15 +68,7 @@
           <li class="my-px">
             <a
               href="#"
-              class="
-                flex flex-row
-                items-center
-                h-12
-                px-4
-                rounded-lg
-                text-gray-600
-                hover:bg-gray-100
-              "
+              class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
             >
               <span
                 class="flex items-center justify-center text-lg text-gray-400"
@@ -140,15 +95,7 @@
             <router-link
               to="/"
               @click="logOut"
-              class="
-                flex flex-row
-                items-center
-                h-12
-                px-4
-                rounded-lg
-                text-gray-600
-                hover:bg-gray-100
-              "
+              class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
             >
               <span
                 class="flex items-center justify-center text-lg text-red-400"

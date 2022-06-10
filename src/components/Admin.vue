@@ -1,141 +1,182 @@
 <template>
-    <div class="max-w-2xl mx-auto bg-white p-16">
+  <div class="max-w-2xl mx-auto bg-white p-16">
+    <div class="p-4 rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8">
+      <form @submit.prevent="onSubmit">
+        <div class="grid gap-6">
+          <div class="relative md:mx-6">
+            <input
+              type="text"
+              id="food_title"
+              v-model="foodForm.title"
+              class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="food_title"
+              class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Food Title</label
+            >
+          </div>
+          <div class="relative md:mx-6">
+            <input
+              type="number"
+              id="food_price"
+              v-model="foodForm.price"
+              class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="food_price"
+              class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Price</label
+            >
+          </div>
 
-        <div class="p-4   rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8">
-            <form @submit.prevent="onSubmit">
-                <div class=" grid gap-6 mb-6 lg:grid-cols-5 ">
-                    <div class="col-span-1">
-                        <label for="food_title"
-                            class="flex justify-start mb-2 text-sm lg:text-base font-medium text-gray-900 ">Food
-                            Title</label>
-                    </div>
-                    <div class="col-span-4">
-                        <input type="text" id="food_title" v-model="foodForm.title"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Pizza" required>
-                    </div>
-                    <div class="col-span-1">
-                        <label for="food_price"
-                            class="flex justify-start mb-2 text-sm lg:text-base font-medium text-gray-900 ">Price</label>
-                    </div>
-                    <div class="col-span-4">
-                        <input type="number" id="food_price" v-model="foodForm.price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="Ksh 100 " required>
-                    </div>
+          <div class="relative md:mx-6">
+            <input
+              type="number"
+              id="food_time"
+              v-model="foodForm.time"
+              class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="food_time"
+              class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Time</label
+            >
+          </div>
 
-                    <div class="col-span-1">
-                        <label for="food_time"
-                            class="flex justify-start mb-2 text-sm lg:text-base font-medium text-gray-900 ">Time</label>
-                    </div>
-                    <div class="col-span-4">
-                        <input type="number" id="food_time" v-model="foodForm.time"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="20 min" required>
-                    </div>
-                    <div class="col-span-1">
-                        <label for="food_rating"
-                            class="flex justify-start mb-2 text-sm lg:text-base font-medium text-gray-900 ">
-                            Rating</label>
-                    </div>
-                    <div class="col-span-4">
-                        <input type="number" id="food_rating" v-model="foodForm.rating"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-                            placeholder="4" required>
-                    </div>
+          <div class="relative md:mx-6">
+            <input
+              type="number"
+              id="food_rating"
+              v-model="foodForm.rating"
+              class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="food_rating"
+              class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+            >
+              Rating</label
+            >
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-center items-center md:mx-6">
+              <label
+                for="food-img"
+                class="flex flex-col justify-center items-center w-full h-full bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+              >
+                <div
+                  v-if="foodForm.img == ''"
+                  class="flex flex-col justify-center items-center pt-5 pb-6"
+                >
+                  <svg
+                    class="mb-3 w-10 h-10 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                    ></path>
+                  </svg>
+                  <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                    <span class="font-semibold"
+                      >Click to upload Food Cover Photo</span
+                    >
+                    or drag and drop
+                  </p>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    SVG, PNG, JPG (MAX. 800x400px)
+                  </p>
                 </div>
-                <div class="mb-4">
-                    <label class="flex justify-start mb-2 text-sm lg:text-base font-medium text-gray-900"> Food Cover
-                        Photo </label>
-                    <div
-                        class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                        <div class="space-y-1 text-center">
-                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none"
-                                viewBox="0 0 48 48" aria-hidden="true">
-                                <path
-                                    d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            <div class="flex text-sm text-gray-600">
-                                <label for="food-img"
-                                    class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                    <span>Upload Image</span>
-                                    <input id="food-img" name="food-img" type="file" @input="onFileInput"
-                                        class="sr-only" />
-                                </label>
-                                <p class="pl-1">or drag and drop</p>
-                            </div>
-                            <p class="text-xs text-gray-500">PNG, JPG up to 10MB</p>
-                        </div>
-                    </div>
+                <input
+                  id="food-img"
+                  type="file"
+                  class="hidden"
+                  @input="onFileInput"
+                />
+                <div
+                  v-if="foodForm.img != ''"
+                  class="aspect-w-2 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden sm:col-span-4 lg:col-span-5"
+                >
+                  <img
+                    :src="foodForm.img"
+                    :alt="foodForm.title"
+                    class="object-center object-cover"
+                  />
                 </div>
-                <button type="submit" @click="submitData"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm lg:text-base w-full sm:w-auto px-5 py-2.5 text-center ">Submit</button>
-
-            </form>
+              </label>
+            </div>
+          </div>
         </div>
-    </div>
 
+        <button
+          type="submit"
+          @click="submitData"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm lg:text-base w-full sm:w-auto px-5 py-2.5 text-center"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
 </template>
 <script>
-
-import { ref, Ref, reactive, computed } from 'vue'
-import { uploadImage, getImageUrl, getPath } from '../firebase'
-import { useStore } from 'vuex'
-import { useBase64 } from '@vueuse/core'
-
+import { ref, reactive } from "vue";
+import { uploadImage, getPath } from "../firebase";
+import { useStore } from "vuex";
 
 export default {
+  setup() {
+    const store = useStore();
 
-    setup() {
-        const store = useStore()
+    const foodForm = reactive({
+      title: "",
+      price: "",
+      time: "",
+      rating: "",
+      img: "",
+    });
 
-        const foodForm = reactive({
-            title: '',
-            price: '',
-            time: '',
-            rating: '',
-            img: '',
-        })
+    const file = ref();
 
+    const onFileInput = (e) => {
+      console.log(foodForm.img);
+      file.value = e.target.files[0];
 
-        const file = ref()
+      uploadImage(file.value, foodForm.title);
+      foodForm.img = getPath();
+    };
 
+    const submitData = () => {
+      setTimeout(() => {
+        console.log(foodForm.img);
+        store.commit("products/updateProductForm", foodForm);
+        store.dispatch("products/fetchNoOfProducts");
+      }, 1000);
+    };
 
-        const onFileInput = (e) => {
-
-            file.value = (e.target).files[0]
-
-            uploadImage(file.value, foodForm.title)
-        }
-
-        const submitData = () => {
-
-            setTimeout(() => {
-                foodForm.img = getPath()
-                console.log(foodForm.img)
-                store.commit('products/updateProductForm', foodForm)
-                store.dispatch('products/fetchNoOfProducts')
-
-            }, 1000)
-
-        }
-
-
-
-
-
-        return {
-            store,
-            foodForm,
-            submitData,
-            onFileInput,
-            file,
-
-
-        }
-    }
-}
-
-
+    return {
+      store,
+      foodForm,
+      submitData,
+      onFileInput,
+      file,
+    };
+  },
+};
 </script>
